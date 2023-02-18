@@ -1,0 +1,40 @@
+
+spring:
+  application:
+    name: count-statistics
+  mvc:
+    favicon:
+      enabled: false
+  thymeleaf:
+    cache: false
+
+  redis:
+    database: 0
+    expire: 1800
+    host: localhost
+    password: ''
+    pool:
+      max:
+        active: 8
+        idle: 8
+        wait: -1
+      min:
+        idle: 0
+    port: 6379
+    timeout: 5000
+
+server:
+  port: 9040
+  servlet:
+    context-path: /
+
+logging:
+  config: classpath:logback-spring.xml
+
+app:
+  request-log: true
+  uri-expire-day: 90
+  rate:
+    enabled: true
+    uri-count: 5
+    interval-hour: 24

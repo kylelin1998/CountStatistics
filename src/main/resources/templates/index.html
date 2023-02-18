@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html th:lang="${lang}">
+<head>
+
+    <link rel="icon" type="image/x-icon" th:href="@{/app/img/icon.png}"/>
+    <meta charset="UTF-8">
+    <title th:text="${i18n.title}"></title>
+    <meta name="keywords" th:content="${i18n.keywords}" />
+    <meta name="description" th:content="${i18n.description}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//cdn.jsdelivr.net/npm/uikit@3.15.24/dist/css/uikit.min.css" rel="stylesheet">
+    <link th:href="@{/app/css/app.css}" rel="stylesheet">
+    <link th:href="@{/app/css/index.css}" rel="stylesheet">
+
+</head>
+<body>
+
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-center">
+            <a th:href="${switchLang.href}">[[${switchLang.displayText}]]</a>
+        </div>
+    </nav>
+    <div class="top-container uk-background-primary">
+        <h3 class="title uk-heading-small uk-animation-scale-up">
+            [[${i18n.title}]]
+        </h3>
+        <span class="uk-label uk-label-warning">
+                [[${i18n.pv_text}]]<span id="count">loading...</span>, [[${i18n.online_text}]]<span id="online">loading...</span>
+        </span>
+        <div class="uk-flex description uk-text-lead uk-animation-fade" style="margin: 50px">
+            <p>[[${i18n.description}]]</p>
+        </div>
+        <div class="submit-box uk-margin uk-animation-fade">
+            <a class="uk-button uk-background-default uk-text-success uk-text-capitalize" href="https://github.com/kylelin1998/CountStatistics" target="_blank">Github</a>
+            <a class="uk-button uk-background-default uk-text-success uk-text-capitalize" href="https://t.me/KyleLin1998Channel" target="_blank">Telegram</a>
+            <a class="uk-button uk-background-default uk-text-success uk-text-capitalize" href="https://kylelin1998.com" target="_blank">Blog</a>
+        </div>
+    </div>
+
+    <br/><br/>
+    <div class="use-container uk-margin">
+        <h1 class="use-title uk-heading-small">[[${i18n.introduction_name}]]</h1>
+
+        <div class="uk-column-divider" style="margin: 50px">
+
+        </div>
+
+        <div class="uk-flex uk-flex-center">
+            <p>[[${i18n.introduction}]]</p>
+        </div>
+        <div class="uk-flex uk-flex-center">
+            <a class="uk-button uk-background-default uk-text-success uk-text-capitalize" href="https://github.com/kylelin1998/CountStatistics" target="_blank">[[${i18n.introduction_more}]]</a>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <br><br>
+        <div class="filing-num uk-text-small">
+            <img src="https://img.shields.io/badge/license-MIT-green">
+        </div>
+        <br><br><br>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit-icons.min.js"></script>
+    <script th:src="@{/app/js/index.js}"></script>
+
+    <script>
+        var uri = 'countstatistics';
+        $(document).ready(function() {
+            $.get("/api/count/" + uri + "/add", function (data, status) {
+                $("#count").text(data.data);
+            });
+
+            online();
+            setInterval(online, 60000);
+
+            function online() {
+                $.get("/api/online/" + uri + "/heartbeat", function (data, status) {
+                    $("#online").text(data.data);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

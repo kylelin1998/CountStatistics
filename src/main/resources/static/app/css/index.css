@@ -1,0 +1,108 @@
+
+.top-container {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #00d2ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.title {
+    color: #ffffff;
+    margin-top: 100px;
+}
+.description {
+    color: #ffffff;
+}
+.choose-box label {
+    color: #ffffff;
+}
+.submit-box {
+}
+.code-input {
+    width: 200px;
+}
+.code-image {
+    height: 70px;
+    cursor: pointer;
+}
+.ref-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.ref-button {
+    margin-left: 10px;
+}
+
+.use-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+.use-title {
+    text-align: center;
+}
+.use-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+.footer-container {
+    margin-top: 120px;
+    background-color: #222;
+}
+.filing-num {
+    text-align: center;
+    color: #ffffff;
+}
+.concat-desc {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 10px;
+}
+.sponsor-title {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 30px;
+}
+.sponsor-box {
+    display: flex;
+    justify-content: center;
+}
+.sponsor-box img {
+    width: 120px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+.link-title {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+}
+.link-box {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.link {
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.uri {
+    color: red;
+}
+
+.think-box {
+    position: fixed;
+    bottom: -70px;
+    right: 10px;
+    width: 250px;
+    height: 300px;
+}
